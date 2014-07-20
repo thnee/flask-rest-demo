@@ -52,5 +52,5 @@ def user_create():
     db.session.add(user)
     db.session.commit()
 
-    return Response('', 200)
+    return json_response(serialize_user(user), 201)
 
