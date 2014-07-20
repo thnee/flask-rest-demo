@@ -74,7 +74,7 @@ def user_update(user_id):
     if user is None:
         return json_response({'error': 'No user exists with this id.'}, 404)
 
-    # if PUT all, fields are required - if PATCH, none of the fields are not required
+    # if PUT, all fields are required - if PATCH, none of the fields are required
     data_required = (request.method != 'PATCH')
 
     # validate input data
