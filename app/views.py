@@ -26,6 +26,11 @@ def user_read_single(user_id):
     Read one user from database, based on user_id.
     """
     user = User.query.get(user_id)
+
+    # check if user exists
+    if user is None:
+        return json_response({'error': 'No user exists with this id.'}, 404)
+
     return jsonify(**serialize_user(user))
 
 
