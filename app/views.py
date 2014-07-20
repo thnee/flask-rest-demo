@@ -75,7 +75,7 @@ def user_update(user_id):
         return json_response({'error': 'No user exists with this id.'}, 404)
 
     # if PUT all, fields are required - if PATCH, none of the fields are not required
-    data_required = (request.method == 'PATCH')
+    data_required = (request.method != 'PATCH')
 
     # validate input data
     form = UserForm(MultiDict(data), data_required=data_required)
