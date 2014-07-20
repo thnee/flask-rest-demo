@@ -2,10 +2,16 @@
 from flask_wtf import Form
 
 from wtforms import StringField
-from wtforms.validators import DataRequired, Email
+from wtforms.validators import Email
+
+from .form_mixins import ConditionalDataRequiredMixin
+from .validators import ConditionalDataRequired
 
 
-class UserForm(Form):
-    email = StringField('email', validators=[DataRequired(), Email()])
-    password = StringField('password', validators=[DataRequired()])
-    name = StringField('name', validators=[DataRequired()])
+class UserForm(
+    ConditionalDataRequiredMixin,
+    Form
+):
+    email = StringField('email', validators=[ConditionalDataRequired(), Email()])
+    password = StringField('password', validators=[ConditionalDataRequired()])
+    name = StringField('name', validators=[ConditionalDataRequired()])
