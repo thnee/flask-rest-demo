@@ -95,3 +95,19 @@ def user_update(user_id):
 
     return Response('', 204)
 
+
+@app.route('/user/<int:user_id>', methods=['DELETE'])
+def user_delete(user_id):
+
+    user = User.query.get(user_id)
+
+    # check if user exists
+    if user is None:
+        return json_response({'error': 'No user exists with this id.'}, 404)
+
+    # delete user object
+    user = User.query.get(user_id)
+    db.session.delete(user)
+    db.session.commit()
+
+    return Response('', status=204)
