@@ -53,7 +53,10 @@ def user_create():
         return json_response({'email': 'This email address already exists.'}, 400)
 
     # create new user object
-    user = User(data['email'], data['password'], data['name'])
+    user = User()
+    user.email = data['email']
+    user.set_password(data['password'])
+    user.name = data['name']
     db.session.add(user)
     db.session.commit()
 

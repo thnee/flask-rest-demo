@@ -12,11 +12,6 @@ class User(db.Model):
     password_hash = db.Column(db.String(128))
     name = db.Column(db.String(500))
 
-    def __init__(self, email, password, name):
-        self.email = email
-        self.set_password(password)
-        self.name = name
-
     def __repr__(self):
         return '<User %r>' % self.email
 
