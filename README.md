@@ -30,3 +30,13 @@ Just run the included script using python:
 ```
 $ python runserver.py
 ```
+
+## Running tests
+
+This projects utilizes `py.test` for running tests, as well as building the test suite.
+
+To run the test suite using a temporary SQLite database:
+
+```
+$ py.test
+```
