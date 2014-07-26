@@ -7,5 +7,8 @@ SQLAlchemy==0.9.6
 WTForms==2.0.1
 Werkzeug==0.9.6
 argparse==1.2.1
+factory-boy==2.4.1
 itsdangerous==0.24
+py==1.4.22
+pytest==2.6.0
 wsgiref==0.1.2
